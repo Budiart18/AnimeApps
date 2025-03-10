@@ -24,11 +24,7 @@ class FavouriteFragment : Fragment() {
    private val favouriteViewModel: FavouriteViewModel by viewModel()
    private val animeAdapter: AnimeAdapter = AnimeAdapter()
 
-   override fun onCreate(savedInstanceState: Bundle?) {
-      super.onCreate(savedInstanceState)
-   }
-
-   override fun onCreateView(
+    override fun onCreateView(
       inflater: LayoutInflater, container: ViewGroup?,
       savedInstanceState: Bundle?
    ): View {

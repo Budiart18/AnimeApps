@@ -29,7 +29,7 @@ class ProfileFragment : Fragment() {
    }
 
    private fun changeLanguage(){
-      binding.cardLanguage.setOnClickListener {
+      binding.tvChangeLanguage.setOnClickListener {
          startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
       }
    }

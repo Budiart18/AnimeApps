@@ -128,39 +128,18 @@
         app:strokeColor="@color/white"
         app:strokeWidth="0dp">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/tv_change_language"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="16dp"
-            android:orientation="horizontal">
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:fontFamily="@font/opensans_semibold"
+            android:text="@string/change_language"
+            android:textColor="@color/text"
+            android:textSize="14sp"
+            app:drawableEndCompat="@drawable/arrow_right_01_stroke_rounded" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:importantForAccessibility="no"
-                app:srcCompat="@drawable/language_24px"
-                app:tint="@color/text" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/opensans_semibold"
-                android:text="@string/change_language"
-                android:textColor="@color/text"
-                android:textSize="14sp" />
-
-            <ImageView
-                android:id="@+id/ivChangeLanguage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:importantForAccessibility="no"
-                android:src="@drawable/arrow_right_01_stroke_rounded" />
-
-        </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
 
