@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="anime_for_you">Anime untuk Anda</string>
+    <string name="top_results">Hasil Teratas</string>
+    <string name="search">Cari Anime …</string>
+    <string name="profile">Profil</string>
+    <string name="setting">Pengaturan</string>
+    <string name="change_language">Ubah Bahasa</string>
+    <string name="detail">Detail</string>
+    <string name="favorite">Favorit</string>
+    <string name="search_placeholder">Mari mulai mencari!</string>
+    <string name="lest_start_searching">Cari informasi anime dengan mudah dengan ketik di kotak pencarian</string>
+</resources>

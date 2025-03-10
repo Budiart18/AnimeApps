@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="anime_for_you">Anime for you</string>
+    <string name="top_results">Top Results</string>
+    <string name="search">Search Anime …</string>
+    <string name="profile">Profile</string>
+    <string name="setting">Setting</string>
+    <string name="change_language">Change language</string>
+    <string name="detail">Detail</string>
+    <string name="favorite">Favorite</string>
+    <string name="app_name" translatable="false">AnimeApps</string>
+    <string name="search_placeholder">Lets start searching!</string>
+    <string name="lest_start_searching">Search Movies information \n as easy as type it in search box</string>
+    <string name="tv_mail" translatable="false">ragilbudiart@gmail.com</string>
+    <string name="tv_name" translatable="false">Ragil Budiarto</string>
+</resources>

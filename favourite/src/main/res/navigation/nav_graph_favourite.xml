@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/favouriteFragment">
+
+    <fragment
+        android:id="@+id/favouriteFragment"
+        android:name="com.aeryz.animeapps.favourite.presentation.FavouriteFragment"
+        android:label="fragment_favourite"
+        tools:layout="@layout/fragment_favourite">
+
+        <action
+            android:id="@+id/action_favouriteFragment_to_animeDetailFragment"
+            app:destination="@id/animeDetailFragment">
+            <argument
+                android:name="id"
+                app:argType="integer" />
+        </action>
+
+    </fragment>
+
+    <include
+        app:graph="@navigation/nav_graph" />
+</navigation>
