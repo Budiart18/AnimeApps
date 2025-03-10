@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.widget.SearchView.OnQueryTextListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -99,6 +98,8 @@ class SearchFragment : Fragment() {
 
    override fun onDestroyView() {
       super.onDestroyView()
+      animeAdapter.setOnItemClickCallback(null)
+      binding.rvSearchResult.adapter = null
       _binding = null
    }
 

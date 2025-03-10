@@ -124,6 +124,8 @@ class HomeFragment : Fragment() {
 
    override fun onDestroyView() {
       super.onDestroyView()
+      animeAdapter.setOnItemClickCallback(null)
+      binding.rvAnimeMovies.adapter = null
       _binding = null
    }
 

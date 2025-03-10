@@ -70,6 +70,8 @@ class FavouriteFragment : Fragment() {
 
    override fun onDestroy() {
       super.onDestroy()
+      animeAdapter.setOnItemClickCallback(null)
+      binding.rvFavourite.adapter = null
       _binding = null
    }
 }

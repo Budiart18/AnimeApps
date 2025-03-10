@@ -12,13 +12,13 @@ import com.aeryz.core.domain.model.Anime
 class AnimeAdapter: RecyclerView.Adapter<AnimeAdapter.ViewHolder>() {
 
    private var data: List<Anime> = listOf()
-   private lateinit var onItemClickCallback: OnItemClickCallback
+   private var onItemClickCallback: OnItemClickCallback? = null
 
    interface OnItemClickCallback {
       fun onItemClicked(id: Int)
    }
 
-   fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+   fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback?) {
       this.onItemClickCallback = onItemClickCallback
    }
 
@@ -47,7 +47,7 @@ class AnimeAdapter: RecyclerView.Adapter<AnimeAdapter.ViewHolder>() {
    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
       holder.bind(data[position])
       holder.itemView.setOnClickListener {
-         onItemClickCallback.onItemClicked(data[position].id ?: 0)
+         onItemClickCallback?.onItemClicked(data[position].id ?: 0)
       }
    }
 

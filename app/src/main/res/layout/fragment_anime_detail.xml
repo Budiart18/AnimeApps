@@ -65,6 +65,7 @@
                             android:id="@+id/ic_favourite"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
+                            android:contentDescription="@string/favorite"
                             android:layout_gravity="center"
                             android:src="@drawable/favourite_stroke_rounded" />
 

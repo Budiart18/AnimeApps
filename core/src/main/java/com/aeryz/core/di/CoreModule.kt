@@ -13,6 +13,9 @@ import com.aeryz.core.domain.repository.AnimeRepository
 import com.aeryz.core.domain.usecase.AnimeInteractor
 import com.aeryz.core.domain.usecase.AnimeUseCase
 import com.aeryz.core.utils.ApiConstant
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SupportFactory
+import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -36,8 +39,13 @@ private fun provideChuckerInterceptor(context: Context): ChuckerInterceptor {
 }
 
 private fun provideOkHttpClient(chuckerInterceptor: ChuckerInterceptor): OkHttpClient {
+    val hostname = "api.jikan.moe"
+    val certificatePinner = CertificatePinner.Builder()
+        .add(hostname, "sha256/B83dJSU7Dzztwy+HvAHF/ekUhSt+8a3u9GW+2TpRh/0=")
+        .build()
    return OkHttpClient.Builder()
       .addInterceptor(chuckerInterceptor)
+       .certificatePinner(certificatePinner)
       .build()
 }
 
@@ -50,11 +58,13 @@ private fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
 }
 
 private fun provideDatabase(context: Context): AnimeDatabase {
+   val passphrase: ByteArray = SQLiteDatabase.getBytes("aeryz".toCharArray())
+   val factory = SupportFactory(passphrase)
    return Room.databaseBuilder(
       context,
       AnimeDatabase::class.java,
       "anime.db"
-   ).build()
+   ).openHelperFactory(factory).build()
 }
 
 private fun provideDao(animeDatabase: AnimeDatabase): AnimeDao {

@@ -33,6 +33,7 @@
                 android:id="@+id/ic_favourite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/favorite"
                 android:src="@drawable/favourite_fill_rounded"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

@@ -13,4 +13,5 @@
     <string name="lest_start_searching">Search Movies information \n as easy as type it in search box</string>
     <string name="tv_mail" translatable="false">ragilbudiart@gmail.com</string>
     <string name="tv_name" translatable="false">Ragil Budiarto</string>
+    <string name="text_anime_image">anime image</string>
 </resources>

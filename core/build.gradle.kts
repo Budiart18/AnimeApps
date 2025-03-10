@@ -71,4 +71,9 @@ dependencies {
 
    api(libs.glide)
    api(libs.lottie)
+
+   debugImplementation (libs.leakcanary.android)
+
+   implementation(libs.android.database.sqlcipher)
+   implementation(libs.androidx.sqlite.ktx)
 }
