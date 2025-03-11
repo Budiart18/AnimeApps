@@ -3,7 +3,7 @@
 -keep,includedescriptorclasses interface net.sqlcipher.** { *; }
 
 
-##---------------Begin: proguard configuration for Gson ----------
+##---------------Begin: proguard configuration for Gson  ----------
 # Gson uses generic type information stored in a class file when working with fields. Proguard
 # removes such information by default, so configure it to keep all of it.
 -keepattributes Signature
@@ -26,12 +26,18 @@
 -keep class * implements com.google.gson.JsonDeserializer
 
 # Prevent R8 from leaving Data object members always null
--keepclassmembers,allowobfuscation class * {
-@com.google.gson.annotations.SerializedName <fields>;
+-keepclasseswithmembers class * {
+    <init>(...);
+    @com.google.gson.annotations.SerializedName <fields>;
 }
 
+# Retain generic signatures of TypeToken and its subclasses with R8 version 3.0 and higher.
+-keep,allowobfuscation,allowshrinking class com.google.gson.reflect.TypeToken
+-keep,allowobfuscation,allowshrinking class * extends com.google.gson.reflect.TypeToken
 
-##---------------Begin: proguard configuration for Retrofit ----------
+##---------------End: proguard configuration for Gson  ----------
+
+##---------------Begin: proguard configuration for Retrofit  ----------
 # Retrofit does reflection on generic parameters. InnerClasses is required to use Signature and
 # EnclosingMethod is required to use InnerClasses.
 -keepattributes Signature, InnerClasses, EnclosingMethod
@@ -41,7 +47,7 @@
 
 # Retain service method parameters when optimizing.
 -keepclassmembers,allowshrinking,allowobfuscation interface * {
-@retrofit2.http.* <methods>;
+    @retrofit2.http.* <methods>;
 }
 
 # Ignore annotation used for build tooling.
@@ -65,23 +71,35 @@
 -dontwarn kotlinx.**
 
 
-##---------------Begin: proguard configuration for Glide ----------
+##---------------Begin: proguard configuration for Glide  ----------
 -keep public class * implements com.bumptech.glide.module.GlideModule
 -keep class * extends com.bumptech.glide.module.AppGlideModule {
-<init>(...);
+ <init>(...);
 }
 -keep public enum com.bumptech.glide.load.ImageHeaderParser$** {
-**[] $VALUES;
-public *;
+  **[] $VALUES;
+  public *;
 }
 -keep class com.bumptech.glide.load.data.ParcelFileDescriptorRewinder$InternalRewinder {
-*** rewind();
+  *** rewind();
 }
 
 # Uncomment for DexGuard only
 #-keepresourcexmlelements manifest/application/meta-data@value=GlideModule
 
 
-##---------------Begin: proguard configuration for RxJava ----------
+##---------------Begin: proguard configuration for RxJava  ----------
 # Uncomment if you use RxJava
 #-dontwarn java.util.concurrent.Flow*
+
+# Please add these rules to your existing keep rules in order to suppress warnings.
+# This is generated automatically by the Android Gradle plugin.
+-dontwarn com.aeryz.core.data.source.remote.Resource$Error
+-dontwarn com.aeryz.core.data.source.remote.Resource$Loading
+-dontwarn com.aeryz.core.data.source.remote.Resource$Success
+-dontwarn com.aeryz.core.data.source.remote.Resource
+-dontwarn com.aeryz.core.di.CoreModuleKt
+-dontwarn com.aeryz.core.domain.model.Anime
+-dontwarn com.aeryz.core.domain.usecase.AnimeUseCase
+-dontwarn com.aeryz.core.ui.AnimeAdapter$OnItemClickCallback
+-dontwarn com.aeryz.core.ui.AnimeAdapter

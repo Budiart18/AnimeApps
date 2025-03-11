@@ -64,8 +64,8 @@ class FavouriteFragment : Fragment() {
       navController.navigate(action)
    }
 
-   override fun onDestroy() {
-      super.onDestroy()
+   override fun onDestroyView() {
+      super.onDestroyView()
       animeAdapter.setOnItemClickCallback(null)
       binding.rvFavourite.adapter = null
       _binding = null
