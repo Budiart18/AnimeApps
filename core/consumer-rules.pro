@@ -70,20 +70,19 @@
 
 -dontwarn kotlinx.**
 
+# Keep Retrofit related classes
+-dontwarn okhttp3.**
+-dontwarn retrofit2.**
+-keep class retrofit2.** { *; }
+-keep class okhttp3.** { *; }
 
-##---------------Begin: proguard configuration for Glide  ----------
--keep public class * implements com.bumptech.glide.module.GlideModule
--keep class * extends com.bumptech.glide.module.AppGlideModule {
- <init>(...);
-}
--keep public enum com.bumptech.glide.load.ImageHeaderParser$** {
-  **[] $VALUES;
-  public *;
-}
--keep class com.bumptech.glide.load.data.ParcelFileDescriptorRewinder$InternalRewinder {
-  *** rewind();
+# Keep Gson generic types
+-keepclassmembers class * {
+  @com.google.gson.annotations.SerializedName <fields>;
 }
 
+-keep class * extends com.google.gson.TypeAdapter
+-keep class * implements com.google.gson.TypeAdapterFactory
 # Uncomment for DexGuard only
 #-keepresourcexmlelements manifest/application/meta-data@value=GlideModule
 
