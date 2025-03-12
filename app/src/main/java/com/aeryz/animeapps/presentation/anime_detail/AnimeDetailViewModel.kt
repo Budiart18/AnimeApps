@@ -39,7 +39,4 @@ class AnimeDetailViewModel (private val animeUseCase: AnimeUseCase): ViewModel()
       }
    }
 
-   companion object {
-      const val TAG = "DetailViewModel"
-   }
 }

@@ -244,17 +244,6 @@ data class AnimeByIdResponse(
             val openings: List<String?>?
         )
 
-        data class Themes(
-            @SerializedName("mal_id")
-            val malId: Int?,
-            @SerializedName("name")
-            val name: String?,
-            @SerializedName("type")
-            val type: String?,
-            @SerializedName("url")
-            val url: String?
-        )
-
         data class Title(
             @SerializedName("title")
             val title: String?,
