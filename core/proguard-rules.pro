@@ -1,21 +1,22 @@
-# Add project specific ProGuard rules here.
-# You can control the set of applied configuration files using the
-# proguardFiles setting in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
+-dontwarn java.lang.invoke.StringConcatFactory
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
+-keep class com.aeryz.core.di.CoreModuleKt{ *; }
+-keepclassmembers class com.aeryz.core.di.CoreModuleKt { *; }
 
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
+-keep class com.aeryz.core.domain.usecase.** { *; }
+-keepclassmembers class com.domain.usecase.** { *; }
 
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
+-keep class com.databinding.** { *; }
+-keepclassmembers class com.databinding.** { *; }
+
+-keep class com.aeryz.core.ui.** { *; }
+-keepclassmembers class com.aeryz.core.ui.** { *; }
+
+-keep class com.aeryz.core.data.** { *; }
+-keepclassmembers class com.aeryz.core.data.** { *; }
+
+-keep class com.aeryz.core.data.source.remote.response.** { *; }
+-keepclassmembers class com.aeryz.core.data.source.remote.response.** { *; }
+
+-keep class com.aeryz.core.domain.model.** { *; }
+-keepclassmembers class com.aeryz.core.domain.model.** { *; }

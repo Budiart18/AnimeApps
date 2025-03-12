@@ -63,7 +63,7 @@ private fun provideDatabase(context: Context): AnimeDatabase {
    return Room.databaseBuilder(
       context,
       AnimeDatabase::class.java,
-      "anime.db"
+      "anime"
    ).openHelperFactory(factory).build()
 }
 
